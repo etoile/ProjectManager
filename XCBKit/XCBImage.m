@@ -40,7 +40,7 @@
 	if (self == nil)
 		return nil;
 	data = [theData retain];
-	rect = rect;
+	rect = aRect;
 	depth = aDepth;
 	format = aFormat;
 	return self;
@@ -68,7 +68,7 @@
 	if (reply == NULL)
 	{
 		assert(error != NULL);
-		XCBRaiseGenericErrorException(error, @"xcb_get_image", [NSString stringWithFormat: @"+[XCBImage getImageWithDrawable:inRect:format:planes] (drawable=%@, rect=%@, format=%d, planes=%d)", drawable, rect, format, planes]);
+		XCBRaiseGenericErrorException(error, @"xcb_get_image", [NSString stringWithFormat: @"+[XCBImage getImageWithDrawable:inRect:format:planes] (drawable=%@, rect=%@, format=%d, planes=%d)", drawable, XCBStringFromRect(rect), format, planes]);
 	}
 	int data_length = xcb_get_image_data_length(reply);
 	uint8_t *data_buffer = xcb_get_image_data(reply);

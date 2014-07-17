@@ -63,10 +63,9 @@ $(FRAMEWORK_NAME)_HEADER_FILES = \
 
 ADDITIONAL_OBJCFLAGS = -std=c99 -g -Wno-unused  -Werror -Wall
 ADDITIONAL_INCLUDE_DIRS += -I/usr/X11R6/include
-ADDITIONAL_LIB_DIRS += -L/usr/X11R6/lib -lxcb -lxcb-event \
-	-lxcb-composite -lxcb-damage \
-	-lxcb-render-util -lxcb-xfixes \
-	-lxcb-shape
+ADDITIONAL_LIB_DIRS += -L/usr/X11R6/lib
+
+LIBRARIES_DEPEND_UPON = $(shell pkg-config --libs xcb xcb-event xcb-composite xcb-damage xcb-render xcb-renderutil xcb-xfixes xcb-shape) -lEtoileFoundation $(FND_LIBS) $(OBJC_LIBS) $(SYSTEM_LIBS)
 
 include $(GNUSTEP_MAKEFILES)/framework.make
 -include ../../../../etoile.make

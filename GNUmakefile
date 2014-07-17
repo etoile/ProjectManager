@@ -2,7 +2,7 @@ ETOILE_CORE_MODULE = YES
 
 include $(GNUSTEP_MAKEFILES)/common.make
 
-SUBPROJECTS = XCBKit WorkspaceManager
+SUBPROJECTS = XCBKit #WorkspaceManager
 DEPENDENCIES = XCBKit
 
 #
